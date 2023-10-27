@@ -1,0 +1,92 @@
+/* Nunino font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600&display=swap');
+/* Kanit font */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&family=Nunito:wght@500;600&display=swap');
+
+:root {
+    --black: #336;
+    --gray: #eee;
+    --white: #f7f7f7;
+    --gray_white-gradient: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 50%, rgba(226,226,226,1) 100%);
+
+
+    --normal: #9099a1;
+    --normal-gradient: linear-gradient(165deg, #e1e4e7 0%, #9099a1 100%);
+
+    --fighting: #ce4069;
+    --fighting-gradient: linear-gradient(165deg, rgba(247,180,200,1) 0%, rgba(206,64,105,1) 100%);
+    
+    --flying: #92aade;
+    --flying-gradient: linear-gradient(165deg, rgba(185,207,255,1) 0%, rgba(146,170,222,1) 100%);
+
+    --poison: #ab6ac8;
+    --poison-gradient: linear-gradient(165deg, rgba(189,150,207,1) 0%, rgba(171,106,200,1) 100%);
+
+    --ground: #d97746;
+    --ground-gradient: linear-gradient(165deg, rgba(255,197,168,1) 0%, rgba(217,119,70,1) 100%);;
+
+    --rock: #c7b78b;
+    --rock-gradient: linear-gradient(165deg, rgba(254,226,150,1) 0%, rgba(199,183,139,1) 100%);
+
+    --bug: #90c12c;
+    --bug-gradient: linear-gradient(165deg, rgba(182,222,102,1) 0%, rgba(144,193,44,1) 100%);
+
+    --ghost: #5269ac;
+    --ghost-gradient: linear-gradient(165deg, rgba(135,153,207,1) 0%, rgba(82,105,172,1) 100%);
+
+    --steel: #5a8ea1;
+    --steel-gradient: linear-gradient(165deg, rgba(146,185,199,1) 0%, rgba(90,142,161,1) 100%);
+
+    --fire: #ff9c54;
+    --fire-gradient: linear-gradient(165deg, rgba(238,173,125,1) 0%, rgba(255,156,84,1) 100%);
+
+    --water: #4d90d5;
+    --water-gradient: linear-gradient(165deg, rgba(162,208,255,1) 0%, rgba(77,144,213,1) 100%);
+
+    --grass: #63bb5b;
+    --grass-gradient: linear-gradient(165deg, rgba(143,238,134,1) 0%, rgba(99,187,91,1) 100%);
+
+    --electric: #f3d23b;
+    --electric-gradient: linear-gradient(165deg, rgba(255,230,114,1) 0%, rgba(243,210,59,1) 100%);
+
+    --psychic: #f97176;
+    --psychic-gradient: linear-gradient(165deg, rgba(254,189,192,1) 0%, rgba(249,113,118,1) 100%);
+
+    --ice: #74cec0;
+    --ice-gradient: linear-gradient(165deg, rgba(186,255,244,1) 0%, rgba(116,206,192,1) 100%);
+
+    --dragon: #096dc4;
+    --dragon-gradient: linear-gradient(165deg, rgba(107,186,255,1) 0%, rgba(9,109,196,1) 100%);
+
+    --dark: #5a5366;
+    --dark-gradient: linear-gradient(165deg, rgba(152,141,172,1) 0%, rgba(90,83,102,1) 100%);
+
+    --fairy: #ec8fe6;
+    --fairy-gradient: linear-gradient(165deg, rgba(255,230,253,1) 0%, rgba(236,143,230,1) 100%);
+}
+
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--black);
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: var(--gray);
+    padding-bottom: 200px;
+    z-index: -5;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    border: 0;
+    border-radius: 0;
+    user-select: none;
+    border-radius: 5px;
+}
+

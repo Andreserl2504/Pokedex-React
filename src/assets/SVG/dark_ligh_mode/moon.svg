@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="387.11334"
+   height="387.112"
+   viewBox="0 0 387.11334 387.112"
+   sodipodi:docname="moon.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <linearGradient
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(9.0034475,-290.19391,-290.19391,-9.0034475,140.66557,290.2641)"
+       spreadMethod="pad"
+       id="linearGradient28">
+      <stop
+         style="stop-opacity:1;stop-color:#5abbe1"
+         offset="0"
+         id="stop22" />
+      <stop
+         style="stop-opacity:1;stop-color:#589ac8"
+         offset="0.5"
+         id="stop24" />
+      <stop
+         style="stop-opacity:1;stop-color:#4d7ba1"
+         offset="1"
+         id="stop26" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="moon"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,387.112)">
+    <g
+       id="g10">
+      <g
+         id="g12">
+        <g
+           id="g18">
+          <g
+             id="g20">
+            <path
+               d="M 39.384,244.584 C 13.112,216.629 0.064,181.021 0,145.463 v 0 -0.541 C 0.062,112.275 11.07,79.706 32.837,53.189 v 0 c -4.629,13.629 -1.774,29.3 8.77,40.52 v 0 c 15.214,16.187 40.669,16.978 56.857,1.764 v 0 c 16.188,-15.214 16.977,-40.669 1.764,-56.858 v 0 C 89.683,27.396 74.219,23.576 60.33,27.352 v 0 c 58.261,-42.064 140.093,-35.365 190.621,18.399 v 0 c 46.593,49.578 51.593,123.242 16.335,177.965 v 0 c 14.147,-32.11 8.735,-70.947 -16.809,-98.126 v 0 C 221.054,94.282 174.539,88.679 139.027,109.641 v 0 c 16.563,-5.348 35.463,-1.13 48.174,12.395 v 0 c 17.577,18.702 16.664,48.112 -2.038,65.688 v 0 c -18.702,17.577 -48.111,16.664 -65.688,-2.038 v 0 c -12.711,-13.525 -15.749,-32.65 -9.385,-48.85 v 0 c -23.124,34.144 -20.414,80.917 9.009,112.225 v 0 c 25.544,27.18 63.971,34.989 96.896,22.86 v 0 c -21.974,12.301 -46.408,18.412 -70.802,18.413 v 0 c -38.666,0.002 -77.239,-15.351 -105.809,-45.75"
+               style="fill:url(#linearGradient28);stroke:none"
+               id="path30" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
