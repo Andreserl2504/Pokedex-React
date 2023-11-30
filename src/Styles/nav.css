@@ -1,9 +1,8 @@
 .nav {
-    position: fixed;
-    width: 100vw;
+    position: sticky;
+    top: 0;
     max-height: 90px;
-    z-index: 5;
-
+    z-index: 2;
 }
 
 .nav-list-container {
@@ -48,7 +47,7 @@
     box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 0;
-    width: 100vw;
+    width: 100%;
     z-index: 10;
 }
 
