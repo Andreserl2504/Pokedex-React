@@ -7,14 +7,13 @@ export const PokemonContext = createContext();
 export const PokemonProvider = ({ children }) => {
   const [pokemonInfo, setPokemonInfo] = useState([]);
   useEffect(() => {
-    const { pokemonInfo: pokemonDataInfo } = pokemonFetching();
-    setPokemonInfo([...pokemonDataInfo])
-    console.log(pokemonDataInfo)
+    pokemonFetching().then(setPokemonInfo);
   }, [])
+  
   // const refreshPokemon = () => {};
-
+  
   return (
-    <PokemonContext.Provider value={{ pokemonInfo: pokemonInfo }}>
+    <PokemonContext.Provider value={[pokemonInfo]}>
       {children}
     </PokemonContext.Provider>
   );

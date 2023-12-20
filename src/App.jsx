@@ -20,13 +20,13 @@ export function App() {
   // };
 
   // const pokemonFiltred = pokemonInfo ? pokemonFilter(pokemonInfo) : null;
-
+  
   return (
     <PokemonProvider>
       <FilterProvider>
         <Nav />
         <Pokemon />
-        <Footer/>
+        <Footer />
       </FilterProvider>
     </PokemonProvider>
   );
