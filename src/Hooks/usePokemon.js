@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { pokemonFetching } from "../logic/pokemonFetching";
+import { usePokemonFetching } from "./usePokemonFetching";
 
 export const usePokemon = () => {
   const [pokemonInfo, setPokemonInfo] = useState(null);
+  const newPokemonInfo = usePokemonFetching();
   useEffect(() => {
-    const catchData = async () => {
-      const newPokemonInfo = await pokemonFetching();
+    const catchData = () => {
       setPokemonInfo(newPokemonInfo);
     };
     catchData();
   }, []);
-
+  console.log(pokemonInfo)
   return pokemonInfo;
 };

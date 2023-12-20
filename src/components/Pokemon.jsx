@@ -1,7 +1,11 @@
 import { ImgTypes } from "./ImgTypes";
 import '../Styles/main.css'
+import { PokemonContext } from "../context/Pokemon";
+import { useContext } from "react";
 
-export function Pokemon({ pokemonInfo }) {
+export function Pokemon() {
+  const { pokemonInfo } = useContext(PokemonContext) 
+  console.log(pokemonInfo)
   return (
     <main className="all-pokemones" id="pokemonList">
       {pokemonInfo ? (
