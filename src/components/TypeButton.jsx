@@ -1,6 +1,6 @@
 import '../Styles/types_btn.css'
 import { useContext } from "react";
-import {PokemonContext} from "../context/Pokemon"
+import { FilterContext } from '../context/Filters';
 
 export function TypeButton() {
   const pokemonTypes = [
@@ -24,13 +24,13 @@ export function TypeButton() {
     "dragon",
   ];
 
-  const {refreshPokemon} = useContext(PokemonContext)
+  const {changeFilter} = useContext(FilterContext)
 
   return (
     <>
       {pokemonTypes.map((type) => (
         <li key={type} className="nav-item">
-          <button className={`btn btn-header ${type}`} onClick={refreshPokemon}>
+          <button className={`btn btn-header ${type}`} onClick={changeFilter}>
             {type.charAt(0).toUpperCase() + type.slice(1)}
           </button>
         </li>

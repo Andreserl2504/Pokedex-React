@@ -8,22 +8,20 @@ export const PokemonContext = createContext();
 export const PokemonProvider = ({ children }) => {
   const [pokemonInfo, setPokemonInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { changeFilter, filter } = useContext(FilterContext);
-  const refreshPokemon = (event) => {
-    changeFilter(event)
-    console.log(filter)
-    pokemonFetching(setIsLoading,filter).then(setPokemonInfo)
-  };
+  const { filter } = useContext(FilterContext);
 
   useEffect(() => {
     if (filter.length < 3) {
-      pokemonFetching(setIsLoading,filter).then(setPokemonInfo)
+      pokemonFetching(setIsLoading,filter).then(data => {
+        setPokemonInfo(data.filter(element => element !== undefined))
+        setIsLoading(false);
+      })
     }
-  }, [])
+  }, [filter])
   
   
   return (
-    <PokemonContext.Provider value={{pokemonInfo , isLoading, refreshPokemon}}>
+    <PokemonContext.Provider value={{pokemonInfo , isLoading}}>
       {children}
     </PokemonContext.Provider>
   );
