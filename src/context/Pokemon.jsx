@@ -1,19 +1,29 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 import { pokemonFetching } from "../service/pokemonFetching";
 import { useEffect } from "react";
+import { FilterContext } from "./Filters";
 
 export const PokemonContext = createContext();
 
 export const PokemonProvider = ({ children }) => {
   const [pokemonInfo, setPokemonInfo] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const { changeFilter, filter } = useContext(FilterContext);
+  const refreshPokemon = (event) => {
+    changeFilter(event)
+    console.log(filter)
+    pokemonFetching(setIsLoading,filter).then(setPokemonInfo)
+  };
+
   useEffect(() => {
-    pokemonFetching().then(setPokemonInfo);
+    if (filter.length < 3) {
+      pokemonFetching(setIsLoading,filter).then(setPokemonInfo)
+    }
   }, [])
   
-  // const refreshPokemon = () => {};
   
   return (
-    <PokemonContext.Provider value={[pokemonInfo]}>
+    <PokemonContext.Provider value={{pokemonInfo , isLoading, refreshPokemon}}>
       {children}
     </PokemonContext.Provider>
   );

@@ -22,12 +22,12 @@ export function App() {
   // const pokemonFiltred = pokemonInfo ? pokemonFilter(pokemonInfo) : null;
   
   return (
-    <PokemonProvider>
-      <FilterProvider>
+    <FilterProvider>
+      <PokemonProvider>
         <Nav />
         <Pokemon />
         <Footer />
-      </FilterProvider>
-    </PokemonProvider>
+      </PokemonProvider>
+    </FilterProvider>
   );
 }

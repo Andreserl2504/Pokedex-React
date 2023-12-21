@@ -4,7 +4,6 @@ export const FilterContext = createContext();
 
 export const FilterProvider = ({ children }) => {
   const [filter, setFilter] = useState(["none"]);
-
   const changeFilter = (event) => {
     if (!filter.includes(event.target.innerHTML) && filter.length < 2) {
       if (

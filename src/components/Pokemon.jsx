@@ -4,10 +4,11 @@ import { PokemonContext } from "../context/Pokemon";
 import { useContext } from "react";
 
 export function Pokemon() {
-  const [pokemonInfo] = useContext(PokemonContext) 
+  const { pokemonInfo, isLoading } = useContext(PokemonContext) 
+  console.log(pokemonInfo)
   return (
     <main className="all-pokemones" id="pokemonList">
-        {pokemonInfo?.length > 0 ? (
+        {pokemonInfo?.length > 0 && !isLoading ? (
         pokemonInfo.map((pokemon) => (
           <div key={pokemon.id} className="pokemon">
             <span>{`#${String(pokemon.id).padStart(3, "0")}`}</span>
@@ -23,12 +24,11 @@ export function Pokemon() {
             </div>
           </div>
         ))
-      ) : pokemonInfo === 0 ? (
-        // indicar si se encontró el pokemon o no
-        <h1>Not Found</h1>
-      ) : (
+      ) : isLoading ? (
         <h1>loading...</h1>
-      )}
+        ) : !isLoading && pokemonInfo?.length == 0 ? (
+        <h1>Not Found</h1>
+      ) : <h1></h1>}
     </main>
   );
 }
