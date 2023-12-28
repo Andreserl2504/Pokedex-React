@@ -1,10 +1,10 @@
 const URLAPI = "https://pokeapi.co/api/v2/pokemon/";
-const pokemonLimit = 251;
-let pokemonLength = 151;
+// const pokemonLimit = 251;
+let pokemonLength = 30;
 
 export const pokemonFetching = (
-  setIsLoading,
   urlArray,
+  setIsLoading,
   setIsError,
   setErrorMessage
 ) => {
@@ -47,6 +47,7 @@ export const pokemonFetching = (
             };
           })
           .catch((e) => {
+            console.log(e);
             setIsError(true);
             setErrorMessage("❌ Fetching Error...");
           })

@@ -14,6 +14,11 @@ export function Pokemon() {
     <main className="all-pokemones" id="pokemonList">
       {pokemonInfo?.length > 0 && !isLoading && !isError ? (
         <AllPokemon pokemon={pokemonInfo} />
+      ) : pokemonInfo?.length > 0 && isLoading && !isError ? (
+        <>
+          <AllPokemon pokemon={pokemonInfo} />
+          <IsLoading />
+        </>
       ) : isLoading && !isError ? (
         <IsLoading />
       ) : !isLoading && pokemonInfo?.length == 0 && !isError ? (
