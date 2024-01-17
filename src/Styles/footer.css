@@ -1,3 +1,34 @@
-footer {
-  background-color: var(--gray);
+.footer {
+  background-color: var(--solid-gray);
+  min-height: 50px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
+.links-footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 30px);
+  gap: 20px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-container {
+  width: 100px;
+  height: 30px;
+}
+
+.link-footer {
+  color: #fff;
+}
+
+.links-footer-container > div {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

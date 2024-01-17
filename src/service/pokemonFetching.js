@@ -1,8 +1,8 @@
 const URLAPI = "https://pokeapi.co/api/v2/pokemon/";
-// const pokemonLimit = 251;
-let pokemonLength = 30;
+const pokemonLength = 30;
 
 export const pokemonFetching = (
+  pokemonInScreen,
   urlArray,
   setIsLoading,
   setIsError,
@@ -19,7 +19,11 @@ export const pokemonFetching = (
       },
       (_, i) =>
         fetch(
-          `${urlArray.length === 0 ? URLAPI + parseInt(i + 1) : urlArray[i]}`
+          `${
+            urlArray.length === 0
+              ? URLAPI + parseInt(i + 1 + pokemonInScreen)
+              : urlArray[i + pokemonInScreen]
+          }`
         )
           .then((response) => {
             if (response.ok) {

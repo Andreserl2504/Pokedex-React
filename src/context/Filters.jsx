@@ -13,7 +13,11 @@ export const FilterProvider = ({ children }) => {
       )
         event.target.classList.value +=
           ` ` + event.target.innerHTML.toLowerCase() + `-active`;
-      filter[0] == "none"
+      
+      
+      
+      
+          filter[0] == "none"
         ? setFilter([event.target.innerHTML])
         : setFilter([...filter, event.target.innerHTML]);
     } else {

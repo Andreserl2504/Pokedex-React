@@ -1,7 +1,8 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { pokemonFetching } from "../service/pokemonFetching";
 import { typesFetching } from "../service/typePokemonFetching";
 import { FilterContext } from "../context/Filters";
+import { useIntersetionObserver } from "./useIntersectionObserver";
 
 export function usePokemon() {
   const { filter } = useContext(FilterContext);
@@ -11,7 +12,36 @@ export function usePokemon() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [prevFilter, setPrevFilter] = useState([...filter]);
   const [prevArrayURL, setPrevArrayURL] = useState([]);
-  const [pokemonInScreen, setPokemonInScreen] = useState(0);
+  const [urlArrayFilter, setUrlArrayFilter] = useState([]);
+  const pokemonElements = useRef();
+  const [observer] = useIntersetionObserver(
+    pokemonElements,
+    urlArrayFilter,
+    setPokemonInfo,
+    setIsLoading,
+    setIsError,
+    setErrorMessage
+  );
+
+  useEffect(() => {
+    if (
+      pokemonElements.current !== undefined &&
+      pokemonElements.current.children[0].children !== undefined &&
+      pokemonElements.current.children[0].children.length > 1 &&
+      !isLoading
+    ) {
+      console.log(
+        pokemonElements.current.children[0].children[
+          pokemonElements.current.children[0].children.length - 1
+        ]
+      );
+      observer.observe(
+        pokemonElements.current.children[0].children[
+          pokemonElements.current.children[0].children.length - 1
+        ]
+      );
+    }
+  }, [isLoading]);
 
   useEffect(() => {
     if (
@@ -27,7 +57,10 @@ export function usePokemon() {
               return info.some((secUrl) => secUrl === url);
             });
             if (infoFiltred.length > 0) {
+              console.log(infoFiltred);
+              setUrlArrayFilter(...infoFiltred);
               return pokemonFetching(
+                0,
                 infoFiltred,
                 setIsLoading,
                 setIsError,
@@ -35,7 +68,10 @@ export function usePokemon() {
               );
             }
           } else {
+            console.log(info);
+            setUrlArrayFilter([...info]);
             return pokemonFetching(
+              0,
               info,
               setIsLoading,
               setIsError,
@@ -44,12 +80,14 @@ export function usePokemon() {
           }
         })
         .then((data) => {
-          data ? setPokemonInfo(data.filter((element) => element !== undefined)) : setPokemonInfo([]);
+          data
+            ? setPokemonInfo(data.filter((element) => element !== undefined))
+            : setPokemonInfo([]);
         })
         .finally(() => setIsLoading(false));
     } else if (filter[0] === "none") {
       setPokemonInfo([]);
-      pokemonFetching([], setIsLoading, setIsError, setErrorMessage)
+      pokemonFetching(0, [], setIsLoading, setIsError, setErrorMessage)
         .then(setPokemonInfo)
         .finally(() => setIsLoading(false));
     }
@@ -57,5 +95,5 @@ export function usePokemon() {
     setPrevFilter([...filter]);
   }, [filter]);
 
-  return { pokemonInfo, isError, isLoading, errorMessage };
+  return { pokemonInfo, isError, isLoading, errorMessage, pokemonElements };
 }

@@ -7,6 +7,7 @@
   --black: #336;
   --gray: #eee;
   --white: #f7f7f7;
+  --solid-gray : #222;
   --gray_white-gradient: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
@@ -143,6 +144,11 @@
   box-sizing: border-box;
   color: var(--black);
   font-family: "Nunito", sans-serif;
+}
+
+html {
+  min-height: 100vh;
+  position: relative;
 }
 
 body {
