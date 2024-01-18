@@ -9,49 +9,64 @@ export const useIntersetionObserver = (
   setIsError,
   setErrorMessage
 ) => {
-  const observer = useRef(
-    new IntersectionObserver((intersection) => {
-      console.log(urlArrayFilter);
+  const observer = useRef()
+  const options = {
+    root: null,
+    rootMargion: '0',
+    threshold: 1.0
+  }
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver((intersection) => {
       if (
         intersection[0].isIntersecting &&
-        pokemonElements.current.children[0].children.length % 30 === 0
+        pokemonElements.current.children.length % 30 === 0
       ) {
         observer.current.unobserve(
-          pokemonElements.current.children[0].children[
-            pokemonElements.current.children[0].children.length - 1
-          ]
-        );
+          pokemonElements.current.children[
+            pokemonElements.current.children.length - 1
+          ],
+        )
         if (urlArrayFilter.length >= 1) {
           pokemonFetching(
-            pokemonElements.current.children[0].children.length,
+            pokemonElements.current.children.length,
             urlArrayFilter,
             setIsLoading,
             setIsError,
-            setErrorMessage
+            setErrorMessage,
           )
             .then((info) => {
-              setPokemonInfo((prevState) => prevState.concat(info));
+              setPokemonInfo((prevState) => prevState.concat(info.filter(element => {
+                return element !== undefined && element.id <= 890;
+              })))
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => setIsLoading(false))
         } else {
           pokemonFetching(
-            pokemonElements.current.children[0].children.length,
+            pokemonElements.current.children.length,
             [],
             setIsLoading,
             setIsError,
-            setErrorMessage
+            setErrorMessage,
           )
             .then((info) => {
-              setPokemonInfo((prevState) => prevState.concat(info));
+              setPokemonInfo((prevState) => prevState.concat(info.filter(element => {
+                return element !== undefined && element.id <= 890;
+              })))
             })
-            .finally(() => setIsLoading(false));
+            .finally(() => setIsLoading(false))
         }
-        console.log("hi");
       }
-    }, {})
-  );
+    }, options)
 
-  useEffect(() => {}, []);
+  }, [
+    pokemonElements,
+    urlArrayFilter,
+    setPokemonInfo,
+    setIsLoading,
+    setIsError,
+    setErrorMessage,
+  ])
 
   return [observer.current];
 };

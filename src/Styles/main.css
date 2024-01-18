@@ -1,4 +1,4 @@
-.pokemon-container {
+.all-pokemones {
   min-width: calc(200px + 2rem);
   display: flex;
   justify-content: center;

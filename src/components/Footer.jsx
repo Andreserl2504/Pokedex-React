@@ -1,14 +1,39 @@
-import { GitHubLogo, EmailLogo, InstagramLogo } from './Logos'
-import '../Styles/footer.css'
+import { GitHubLogo, EmailLogo, InstagramLogo } from "./Logos";
+import "../Styles/footer.css";
 
 export const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className='links-footer-container'>
-                <div><a href="" className='link-footer'><GitHubLogo className="social-icon"/></a></div>
-                <div><a href="" className='link-footer'><EmailLogo className="social-icon"/></a></div>
-                <div><a href="" className='link-footer'><InstagramLogo className="social-icon"/></a></div>
-            </div>
-        </footer>
-    )
-}
+  return (
+    <footer className="footer">
+      <div className="links-footer-container">
+        <div>
+          <a
+            href="https://github.com/Andreserl2504"
+            target="_blank"
+            className="link-footer"
+            rel="noreferrer"
+          >
+            <GitHubLogo className="social-icon" />
+          </a>
+        </div>
+        <div>
+          <a
+            href="mailto:andres.rodriguezv05@gmail.com"
+            className="link-footer"
+          >
+            <EmailLogo className="social-icon" />
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.instagram.com/and.sez?igsh=anltcHhnMzhkYTJu"
+            target="_blank"
+            className="link-footer"
+            rel="noreferrer"
+          >
+            <InstagramLogo className="social-icon" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+};

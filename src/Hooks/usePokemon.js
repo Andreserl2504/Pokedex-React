@@ -26,22 +26,22 @@ export function usePokemon() {
   useEffect(() => {
     if (
       pokemonElements.current !== undefined &&
-      pokemonElements.current.children[0].children !== undefined &&
-      pokemonElements.current.children[0].children.length > 1 &&
+      pokemonElements.current.children !== undefined &&
+      pokemonElements.current.children.length > 1 &&
+      pokemonElements.current.children.length % 30 === 0 &&
+      pokemonElements.current.children.length < 890 &&
       !isLoading
     ) {
-      console.log(
-        pokemonElements.current.children[0].children[
-          pokemonElements.current.children[0].children.length - 1
-        ]
-      );
-      observer.observe(
-        pokemonElements.current.children[0].children[
-          pokemonElements.current.children[0].children.length - 1
+      observer?.observe(
+        pokemonElements.current.children[
+          pokemonElements.current.children.length - 1
         ]
       );
     }
-  }, [isLoading]);
+    return () => {
+      observer?.disconnect();
+    };
+  }, [observer, isLoading]);
 
   useEffect(() => {
     if (
@@ -57,7 +57,6 @@ export function usePokemon() {
               return info.some((secUrl) => secUrl === url);
             });
             if (infoFiltred.length > 0) {
-              console.log(infoFiltred);
               setUrlArrayFilter(...infoFiltred);
               return pokemonFetching(
                 0,
@@ -68,7 +67,6 @@ export function usePokemon() {
               );
             }
           } else {
-            console.log(info);
             setUrlArrayFilter([...info]);
             return pokemonFetching(
               0,
@@ -81,7 +79,11 @@ export function usePokemon() {
         })
         .then((data) => {
           data
-            ? setPokemonInfo(data.filter((element) => element !== undefined))
+            ? setPokemonInfo(
+                data.filter((element) => {
+                  return element !== undefined  && element.id <= 890;
+                })
+              )
             : setPokemonInfo([]);
         })
         .finally(() => setIsLoading(false));

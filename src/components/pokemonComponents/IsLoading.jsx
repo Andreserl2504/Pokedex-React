@@ -1,3 +1,5 @@
+import '../../Styles/isLoading.css'
+
 export function IsLoading() {
   return (
     <div className="loader-container">

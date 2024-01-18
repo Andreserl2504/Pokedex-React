@@ -1,7 +1,12 @@
 const URLAPI = "https://pokeapi.co/api/v2/type/";
 
-export function typesFetching(filter,setIsLoading,setIsError,setErrorMessage) {
-  setIsLoading(true)
+export function typesFetching(
+  filter,
+  setIsLoading,
+  setIsError,
+  setErrorMessage
+) {
+  setIsLoading(true);
   const fetchURL =
     filter.length === 1
       ? URLAPI + filter[0].toLowerCase()
@@ -17,13 +22,15 @@ export function typesFetching(filter,setIsLoading,setIsError,setErrorMessage) {
         }
       })
       .then((json) => {
-        res(Array.from({ length: json.pokemon.length }, (_, i) => {
-          return json.pokemon[i].pokemon.url
-        }));
-      }).catch((e)=> {
-        console.log(e)
-        setIsError(true)
-        setErrorMessage('❌ Fetching error...')
+        res(
+          Array.from({ length: json.pokemon.length }, (_, i) => {
+            return json.pokemon[i].pokemon.url;
+          })
+        );
+      })
+      .catch(() => {
+        setIsError(true);
+        setErrorMessage("❌ Fetching error...");
       });
   });
 }
