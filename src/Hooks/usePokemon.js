@@ -10,13 +10,15 @@ export function usePokemon() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [prevFilter, setPrevFilter] = useState([...filter]);
-  const [prevArrayURL, setPrevArrayURL] = useState([]);
-  const [urlArrayFilter, setUrlArrayFilter] = useState([]);
+
+  const urlArrayFilter = useRef([]);
+  const prevArrayURL = useRef([]);
+  const prevFilter = useRef([...filter]);
   const pokemonElements = useRef();
+
   const [observer] = useIntersetionObserver(
     pokemonElements,
-    urlArrayFilter,
+    urlArrayFilter.current,
     setPokemonInfo,
     setIsLoading,
     setIsError,
@@ -46,18 +48,21 @@ export function usePokemon() {
   useEffect(() => {
     if (
       filter[0] !== "none" &&
-      !(prevFilter.includes(filter[0]) && prevFilter.includes(filter[1]))
+      !(
+        prevFilter.current.includes(filter[0]) &&
+        prevFilter.current.includes(filter[1])
+      )
     ) {
       typesFetching(filter, setIsLoading, setIsError, setErrorMessage)
         .then((info) => {
-          setPrevArrayURL([...info]);
           setPokemonInfo([]);
           if (filter.length === 2) {
-            const infoFiltred = prevArrayURL.filter((url) => {
+            const infoFiltred = prevArrayURL.current.filter((url) => {
               return info.some((secUrl) => secUrl === url);
             });
             if (infoFiltred.length > 0) {
-              setUrlArrayFilter(...infoFiltred);
+              prevArrayURL.current = [...info];
+              urlArrayFilter.current = [...infoFiltred];
               return pokemonFetching(
                 0,
                 infoFiltred,
@@ -67,7 +72,8 @@ export function usePokemon() {
               );
             }
           } else {
-            setUrlArrayFilter([...info]);
+            prevArrayURL.current = [...info];
+            urlArrayFilter.current = [...info];
             return pokemonFetching(
               0,
               info,
@@ -81,12 +87,14 @@ export function usePokemon() {
           data
             ? setPokemonInfo(
                 data.filter((element) => {
-                  return element !== undefined  && element.id <= 890;
+                  return element !== undefined && element.id <= 890;
                 })
               )
             : setPokemonInfo([]);
         })
-        .finally(() => setIsLoading(false));
+        .finally(() => {
+          setIsLoading(false);
+        });
     } else if (filter[0] === "none") {
       setPokemonInfo([]);
       pokemonFetching(0, [], setIsLoading, setIsError, setErrorMessage)
@@ -94,7 +102,7 @@ export function usePokemon() {
         .finally(() => setIsLoading(false));
     }
 
-    setPrevFilter([...filter]);
+    prevFilter.current = [...filter];
   }, [filter]);
 
   return { pokemonInfo, isError, isLoading, errorMessage, pokemonElements };
