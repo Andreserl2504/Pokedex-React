@@ -11,7 +11,7 @@ export function SideBar() {
                     ${sideBarBtn ? 'translate-x-0' : 'translate-x-[100%]'}`}
     >
       <section>
-        <div className=' w-full border-2 border-dotted border-white-default rounded-md shadow-sm p-5'>
+        <div className=' w-full border-2 border-dotted border-white-default rounded-md shadow-sm p-5 dark:text-white-default'>
           You do not have any pokemon team
           <div className=' flex justify-center'>😢</div>
         </div>

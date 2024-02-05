@@ -3,7 +3,7 @@ import "../Styles/footer.css";
 
 export const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer bg-solidGray-default">
       <div className="links-footer-container">
         <div>
           <a

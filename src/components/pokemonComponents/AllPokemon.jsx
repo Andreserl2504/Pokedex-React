@@ -8,7 +8,7 @@ export function AllPokemon({ pokemon }) {
       className={` dark:bg-gray-darkMode dark:hover:bg-solidGray-darkMode flex justify-center items-center flex-col min-w-[200px] h-[220px] 
                 bg-gray-default rounded-md shadow-md relative duration-150 
                 hover:bg-gray-10 hover:shadow-lg hover:translate-y-[-2px]
-                [&_span]:select-none [&_span]:font-kanit`}
+                [&_span]:select-none [&_span]:font-kanit dark:[&_span]:text-white-default`}
     >
       <button className=' dark:bg-white-darkMode dark:[&_svg]:fill-white-default bg-white-default w-8 h-8 rounded-lg flex justify-center items-center absolute top-2 left-2 shadow-sm'>
         <Plus />
