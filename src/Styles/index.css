@@ -122,12 +122,12 @@
     rgba(9, 109, 196, 1) 100%
   );
 
-  --dark: #5a5366;
+  /* --dark: #5a5366;
   --dark-gradient: linear-gradient(
     165deg,
     rgba(152, 141, 172, 1) 0%,
     rgba(90, 83, 102, 1) 100%
-  );
+  ); */
 
   --fairy: #ec8fe6;
   --fairy-gradient: linear-gradient(

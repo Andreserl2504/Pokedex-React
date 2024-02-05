@@ -11,7 +11,7 @@ export function Pokemon() {
 
   return (
     <main
-      className=' min-w-[calc(200px + 2rem)] flex justify-center flex-wrap gap-5 bg-white-default mx-10 mt-[50px] mb-[100px] p-10 rounded-md shadow-md'
+      className=' dark:bg-black-darkMode  min-w-[calc(200px + 2rem)] flex justify-center flex-wrap gap-5 bg-white-default mx-10 mt-[50px] mb-[100px] p-10 rounded-md shadow-md'
       ref={pokemonElements}
     >
       {pokemonInfo?.length > 0 && !isLoading && !isError ? (

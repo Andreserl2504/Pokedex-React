@@ -1,21 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         black: {
-          default: '#336'
+          default: '#336',
+          darkMode: '#223'
         },
         gray: {
           default: '#eee',
-          10: '#ddd'
+          10: '#ddd',
+          darkMode: '#445'
         },
         white: {
-          default: '#f7f7f7'
+          default: '#f7f7f7',
+          darkMode: '#556'
         },
         solidGray: {
-          default: '#222'
+          default: '#222',
+          darkMode: '#334'
         },
         normal: {
           default: '#9099a1'
@@ -79,10 +84,6 @@ export default {
       backgroundImage: {
         pokemonBackground: "url('/src/assets/IMG/Background.jpg')"
       }
-      
-      // gradientColorStops: {
-      //   normalGradient: {}
-      // }
     }
   },
   plugins: []
