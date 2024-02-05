@@ -1,7 +1,6 @@
-/* Nunino font */
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500;600&display=swap");
-/* Kanit font */
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@700&family=Nunito:wght@500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --black: #336;
@@ -136,35 +135,4 @@
     rgba(255, 230, 253, 1) 0%,
     rgba(236, 143, 230, 1) 100%
   );
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: var(--black);
-  font-family: "Nunito", sans-serif;
-}
-
-html {
-  min-height: 100vh;
-  position: relative;
-}
-
-body {
-  background-color: var(--gray);
-  background-image: url(/src/assets/IMG/Background.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-ul {
-  list-style-type: none;
-}
-
-button {
-  border: 0;
-  border-radius: 0;
-  user-select: none;
-  border-radius: 5px;
 }

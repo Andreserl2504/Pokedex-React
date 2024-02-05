@@ -1,4 +1,4 @@
-import { GitHubLogo, EmailLogo, InstagramLogo } from "./Logos";
+import { GitHubLogo, EmailLogo, InstagramLogo } from "./icons/Logos";
 import "../Styles/footer.css";
 
 export const Footer = () => {
