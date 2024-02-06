@@ -1,7 +1,7 @@
 import { ImgTypes } from '../ImgTypes'
-import { Plus } from '../icons/icons'
+import { Delete, Plus } from '../icons/icons'
 
-export function AllPokemon({ pokemon }) {
+export function AllPokemon({ pokemon, deletePokemon, addToTeam, pokemonInTeam }) {
   return pokemon?.map((pokemon) => (
     <div
       key={pokemon.id}
@@ -10,8 +10,11 @@ export function AllPokemon({ pokemon }) {
                 hover:bg-gray-10 hover:shadow-lg hover:translate-y-[-2px]
                 [&_span]:select-none [&_span]:font-kanit dark:[&_span]:text-white-default`}
     >
-      <button className=' dark:bg-white-darkMode dark:[&_svg]:fill-white-default bg-white-default w-8 h-8 rounded-lg flex justify-center items-center absolute top-2 left-2 shadow-sm'>
-        <Plus />
+      <button
+        onClick={() => pokemonInTeam.some(pokemonTeam => pokemonTeam.id === pokemon.id) ? deletePokemon(pokemon.id) : addToTeam(pokemon.id)}
+        className=' dark:bg-white-darkMode dark:[&_svg]:fill-white-default bg-white-default w-8 h-8 rounded-lg flex justify-center items-center absolute top-2 left-2 shadow-sm'
+      >
+        {pokemonInTeam.some(pokemonTeam => pokemonTeam.id === pokemon.id) ? (<Delete/>):(<Plus />)}
       </button>
       <span>{`#${String(pokemon.id).padStart(3, '0')}`}</span>
       <div className='dark:bg-white-darkMode flex justify-center w-[50px] h-[50px] pb-3 absolute top-2 right-2 bg-white-default rounded-lg shadow-sm select-none'>

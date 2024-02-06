@@ -14,8 +14,8 @@ export function App() {
           <SideBarProvider>
             <Nav />
             <SideBar />
+            <Pokemon />
           </SideBarProvider>
-          <Pokemon />
         </PokemonProvider>
       </FilterProvider>
       <Footer />

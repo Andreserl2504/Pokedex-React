@@ -21,6 +21,7 @@ export default {
         },
         solidGray: {
           default: '#222',
+          10:'#111',
           darkMode: '#334'
         },
         normal: {

@@ -96,6 +96,8 @@ export function usePokemon() {
           setIsLoading(false);
         });
     } else if (filter[0] === "none") {
+      prevArrayURL.current = [];
+      urlArrayFilter.current = [];
       setPokemonInfo([]);
       pokemonFetching(0, [], setIsLoading, setIsError, setErrorMessage)
         .then(setPokemonInfo)

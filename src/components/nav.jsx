@@ -10,7 +10,8 @@ export function Nav() {
   const NAV_CONTENT = {
     WEB_TITLE: 'Pokedex'
   }
-  const { sideBarBtn, handleSideBar } = useContext(SideBarContext)
+  const { sideBarBtn, handleSideBar, pokemonInTeam } =
+    useContext(SideBarContext)
   const [classesBtnArrow, setClassesBtnArrow] = useState(false)
   const handleClick = () => {
     setClassesBtnArrow((prevState) => !prevState)
@@ -34,6 +35,9 @@ export function Nav() {
           } flex justify-center items-center absolute right-10 `}
           onClick={handleSideBar}
         >
+          <span className=' text-justify bg-solidGray-default h-5 w-5 text-white-default rounded-full absolute translate-x-7 translate-y-[-15px] z-10'>
+            {pokemonInTeam.length}
+          </span>
           {sideBarBtn ? <Plus /> : <SideBarIcon />}
         </button>
       </div>

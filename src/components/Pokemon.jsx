@@ -4,10 +4,12 @@ import { AllPokemon } from './pokemonComponents/AllPokemon'
 import { IsLoading } from './pokemonComponents/IsLoading'
 import { NotFound } from './pokemonComponents/NotFound'
 import { IsMessageError } from './pokemonComponents/IsMessageError'
+import { SideBarContext } from '../context/SideBar'
 
 export function Pokemon() {
   const { pokemonInfo, isLoading, isError, errorMessage, pokemonElements } =
     useContext(PokemonContext)
+  const { addToTeam, pokemonInTeam, deletePokemon } = useContext(SideBarContext)
 
   return (
     <main
@@ -15,10 +17,10 @@ export function Pokemon() {
       ref={pokemonElements}
     >
       {pokemonInfo?.length > 0 && !isLoading && !isError ? (
-        <AllPokemon pokemon={pokemonInfo}/>
+        <AllPokemon pokemon={pokemonInfo} deletePokemon={deletePokemon} addToTeam={addToTeam} pokemonInTeam={pokemonInTeam} />
       ) : pokemonInfo?.length > 0 && isLoading && !isError ? (
         <>
-          <AllPokemon pokemon={pokemonInfo} />
+          <AllPokemon pokemon={pokemonInfo} deletePokemon={deletePokemon} addToTeam={addToTeam} pokemonInTeam={pokemonInTeam}/>
           <IsLoading />
         </>
       ) : isLoading && !isError ? (
