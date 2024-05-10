@@ -14,7 +14,7 @@ export function WithPokemon({ teamPokemonInfo, deletePokemon }) {
           <div className=' flex flex-col gap-[2px] my-2 font-kanit w-full px-4'>
             <span className=' select-none'>{pokemon.name}</span>
 
-            <section className='flex gap-2 justify-start'>
+            <section className='flex gap-1 justify-start'>
               {pokemon.types.map((type) => {
                 return type !== null ? (
                   <span
