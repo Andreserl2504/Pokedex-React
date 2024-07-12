@@ -7,6 +7,7 @@ import { SideBar } from './components/SideBar'
 import { SideBarProvider } from './context/SideBar'
 
 export function App() {
+  
   return (
     <>
       <FilterProvider>

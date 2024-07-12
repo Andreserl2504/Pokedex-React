@@ -5,8 +5,7 @@ import { WithoutPokemon } from './SidebarComponents/WithoutPokemon'
 import { WithPokemon } from './SidebarComponents/WithPokemon'
 
 export function SideBar() {
-  const { sideBarBtn, darkMode, handleDarkMode, pokemonInTeam, deletePokemon } =
-    useContext(SideBarContext)
+  const { sideBarBtn, darkMode, handleDarkMode, pokemonInTeam, deletePokemon } = useContext(SideBarContext)
   return (
     <aside
       className={` flex flex-col justify-between dark:bg-gray-darkMode w-96 min-h-[calc(100vh-90px)] z-10  bg-gray-10 fixed right-0 shadow-lg duration-500 
