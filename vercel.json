@@ -1,0 +1,13 @@
+{
+    "images": {
+      "sizes": [256, 640, 1080, 2048, 3840],
+      "remotePatterns": [
+        {
+          "protocol": "https",
+          "hostname": "pokedex-react-dusky-phi.vercel.app/"
+        }
+      ],
+      "minimumCacheTTL": 60,
+      "dangerouslyAllowSVG": true
+    }
+  }
